@@ -1,4 +1,4 @@
-# Optical Character Recognition (OCR) with Daisies
+# NOAA Weather Data API with Daisies
 
 ## How to Call
 
@@ -11,15 +11,19 @@ import pydaisi as pyd
 Next, we connect to the Daisi:
 
 ```python
-optical_character_recognition = pyd.Daisi("erichare/Optical Character Recognition")
+noaa = pyd.Daisi("erichare/NOAA Weather")
 ```
 
-Next, we call the `annotate_image` function - Here, we can pass a PIL image object, a Numpy image, or, as in this example, if we pass `None`, it uses a default image (the Daisi logo):
+Now, all we have to do is call one of the endpoints, passing in the `country_code` and `postal_code`:
 
 ```python
-optical_character_recognition.annotate_image(image=None).value
+available_vars = noaa.available_wx_data(country_code="{cc}", postal_code="{pc}")
+available_vars
+
+noaa.forecast(country_code="US", postal_code="77001", vars=["temperature", "dewpoint"])
+noaa.observations(country_code="US", postal_code="77001", vars=["temperature", "dewpoint"])
 ```
 
 ## Running the Streamlit App
 
-Or, we can automate everything by just [Running the Streamlit App](https://dev3.daisi.io/daisies/b661456f-ba50-457c-8092-5b6814b2c37f/app)
+Or, we can automate everything by just [Running the Streamlit App]
