@@ -9,8 +9,8 @@ def available_wx_data(country_code, postal_code):
     '''
     Fetch the available variables from the NOAA API
 
-    :param country_code str: The two-digit country code of the country you're interested in
-    :param postal_code str: The n-digit postal code of the area you're interested in
+    :param str country_code: The two-digit country code of the country you're interested in
+    :param str postal_code: The n-digit postal code of the area you're interested in
 
     :return: List of available weather variables
     '''
@@ -22,10 +22,10 @@ def forecast(country_code, postal_code, vars, dat=None):
     '''
     Fetch the forecast for the given postal code from the NOAA API
 
-    :param country_code str: The two-digit country code of the country you're interested in
-    :param postal_code str: The n-digit postal code of the area you're interested in
-    :param vars list: The list of variables to include in the output
-    :param dat dict: If provided, the data pre-fetched for inclusion
+    :param str country_code: The two-digit country code of the country you're interested in
+    :param str postal_code: The n-digit postal code of the area you're interested in
+    :param list vars: The list of variables to include in the output
+    :param dict dat: If provided, the data pre-fetched for inclusion
 
     :return: Weather forecast of the given variables for the given area
     '''
@@ -38,10 +38,10 @@ def observations(country_code, postal_code, vars, dat=None):
     '''
     Fetch the weather observations for the given postal code from the NOAA API
 
-    :param country_code str: The two-digit country code of the country you're interested in
-    :param postal_code str: The n-digit postal code of the area you're interested in
-    :param vars list: The list of variables to include in the output
-    :param dat dict: If provided, the data pre-fetched for inclusion
+    :param str country_code: The two-digit country code of the country you're interested in
+    :param str postal_code: The n-digit postal code of the area you're interested in
+    :param list vars: The list of variables to include in the output
+    :param dict dat: If provided, the data pre-fetched for inclusion
 
     :return: Weather observations of the given variables for the given area
     '''
