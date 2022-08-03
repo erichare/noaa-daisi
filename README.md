@@ -26,4 +26,4 @@ noaa.observations(country_code="US", postal_code="77001", vars=["temperature", "
 
 ## Running the Streamlit App
 
-Or, we can automate everything by just [Running the Streamlit App]
+Or, we can automate everything by just [Running the Streamlit App](4fab8b54-4919-4728-8d62-2318dc3457ab)
