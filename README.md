@@ -2,7 +2,7 @@
 
 ## How to Call
 
-First, we simply load the PyDaisi package:
+First, we simply load the `PyDaisi` package:
 
 ```python
 import pydaisi as pyd
