@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st # For app
 import pandas as pd
 
 from noaa_sdk import NOAA
