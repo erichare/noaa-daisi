@@ -33,7 +33,7 @@ def forecast(country_code, postal_code, vars=None, dat=None):
         dat = n.get_forecasts(postal_code, country_code, type='forecastGridData')
         
     if not vars:
-        vars = []
+        vars = ["temperature", "dewpoint"]
 
     return {k:v for k, v in dat.items() if k in vars}
 
@@ -52,7 +52,7 @@ def observations(country_code, postal_code, vars=None, dat=None):
         dat = n.get_observations(postal_code, country_code)
         
     if not vars:
-        vars = []
+        vars = ["temperature", "dewpoint"]
 
     return {k:v for k, v in list(dat)[0].items() if k in vars}
 
