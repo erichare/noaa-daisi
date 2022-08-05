@@ -16,9 +16,9 @@ def available_wx_data(country_code, postal_code):
     '''
     res = n.get_observations(postal_code, country_code)
 
-    return sorted(list(list(res)[0].keys())), res
+    return sorted(list(list(res)[0].keys()))
 
-def forecast(country_code, postal_code, vars, dat=None):
+def forecast(country_code, postal_code, vars=None, dat=None):
     '''
     Fetch the forecast for the given postal code from the NOAA API
 
@@ -31,10 +31,13 @@ def forecast(country_code, postal_code, vars, dat=None):
     '''
     if not dat:
         dat = n.get_forecasts(postal_code, country_code, type='forecastGridData')
+        
+    if not vars:
+        vars = []
 
     return {k:v for k, v in dat.items() if k in vars}
 
-def observations(country_code, postal_code, vars, dat=None):
+def observations(country_code, postal_code, vars=None, dat=None):
     '''
     Fetch the weather observations for the given postal code from the NOAA API
 
@@ -47,6 +50,9 @@ def observations(country_code, postal_code, vars, dat=None):
     '''
     if not dat:
         dat = n.get_observations(postal_code, country_code)
+        
+    if not vars:
+        vars = []
 
     return {k:v for k, v in list(dat)[0].items() if k in vars}
 
@@ -59,7 +65,7 @@ if __name__ == "__main__":
         cc = st.text_input("Country Code", value="US")
         pc = st.text_input("Postal Code", value="77001")
 
-        wx_keys, wx_dat = available_wx_data(cc, pc)
+        wx_keys = available_wx_data(cc, pc)
 
         vars = st.multiselect("Weather Metrics", options=wx_keys, default=["temperature", "dewpoint"])
 
